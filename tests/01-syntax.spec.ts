@@ -15,7 +15,7 @@ test.describe('Suite 1', async () => {
     test('test 2', async ({ page }) => {
         await test.step('Step 1: Truy cap website', async () => {
             await page.goto("https://tailieu.hoctest.com/", {
-                timeout: 1000
+                timeout: 2000
             });
         })
 
@@ -39,5 +39,13 @@ test.describe('Suite 1', async () => {
 
         await clickArea.click();
     });
+
+    test('test 5', async ({page}) => {
+        await page.goto("https://material.playwrightvn.com/");
+
+        const clickpuzzle = page.locator('//*[@id="section-xpath"]/table/tbody/tr[5]/td[2]/a[@href="05-xpath-drag-and-drop.html"]');
+
+        await clickpuzzle.click();
+    })
 })
 
