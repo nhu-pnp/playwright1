@@ -5,6 +5,7 @@ test('css2', async({page}) => {
     const clickArea = page.locator("//div[@id='clickArea']");
 
     await clickArea.click();
+    await clickArea.dblclick();
     await clickArea.click({button:"right"});
     await clickArea.click({button:"middle"});
     await clickArea.click({clickCount:100});
