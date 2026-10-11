@@ -1,4 +1,5 @@
 import test from "@playwright/test"
+import { ProductPage } from "../../page/product-page";
 
 test('productpage', async ({page}) => {
     await page.goto('https://material.playwrightvn.com/index.html');
@@ -15,3 +16,16 @@ test('productpage', async ({page}) => {
     await sanPham3.click();
 
 })
+
+// click vaof linkl
+test('vao link mua hang', async ({page}) => { 
+    const productPage = new ProductPage(page);
+    console.log(productPage)
+    await productPage.navigateTo(productPage.linkProductPage);
+
+    await productPage.clickProductPage();
+    await productPage.clickProductPage1();
+    await productPage.clickProductPage2();
+    await productPage.clickProductPage3();
+
+ })

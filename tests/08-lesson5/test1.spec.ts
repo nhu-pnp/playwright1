@@ -1,12 +1,28 @@
-import test from "@playwright/test"
+import test, { expect } from "@playwright/test"
+//before
+
 //test case 1 : register page 
 test('register page', async ({page}) => { 
     await page.goto("https://material.playwrightvn.com/");
     const registerPage= page.locator ('//a[@href = "01-xpath-register-page.html"]');
     await registerPage.click();
 
+    // Then heading is "User Registration" 
+
+    // Asssertion
+    // expect(A).toBe(B);
+    // giải nghĩa: Kiểm tra A đúng bằng B. A là string thì b cũng string
+    // a là element thì b cũng là element
+    const headingTitle = page.locator('//h1');
+
+    // await element.textContent() => text nằm trong elements đó
+    const headingTitleText = await headingTitle.textContent();
+    console.log(headingTitleText);
+    expect(headingTitleText).toBe("User Registration");
+
+
     const userName = page.locator('//input[@type="text"]')
-    await userName.fill('Kiki map nhu heo');
+    await userName.fill('Kiki dep trai');
 
     const email = page.locator('//input[@type="email"]');
     await email.fill('kiki@gmail.com');
@@ -46,4 +62,10 @@ test('register page', async ({page}) => {
 
     const registerButton = page.locator("//button[@type='submit']");
     await registerButton.click();
+
+    const username = page.locator('//*[@id="userTable"]/tbody/tr/td[2]');
+    
+    // web first assertion
+    // await expect(ele).toHaveText("text");
+    await expect(username).toHaveText("Kiki dep trai")
 })
