@@ -9,7 +9,31 @@ test('register page', async ({page}) => {
     await registerKhang.fillUsername("khang");
     await registerKhang.fillEmail('khang@gmail.com')
     await registerKhang.selectGender(true);
+    await registerKhang.selectHobbies(['Reading', 'Cooking']);
+    await registerKhang.selectInterest(['Technology', 'Art', 'Music']);
+    await registerKhang.selectcountry(['Canada'])
+    await registerKhang.fillDateOfBirth('2026-08-02');
+    await registerKhang.clickNewLetter();
+    await registerKhang.clickEnableFeature()
+    const vitri = {
+        position: {
+            x:40, 
+            y:10
+        }
+    };
+
+    await registerKhang.clickstar(vitri);
+
     await registerKhang.clickRegisterBtn();
+    //check output inform
+    await registerKhang.checkUserName("khang");
+    await registerKhang.checkEmailTable("khang@gmail.com");
+
+    const information = await registerKhang.getUserInformation();
+    expect(information).toContain("male");
+    expect(information).toContain("reading, cooking");
+    expect(information).toContain("canada");
+
 
 })
 

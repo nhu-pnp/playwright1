@@ -64,8 +64,8 @@ test('register page', async ({page}) => {
     await registerButton.click();
 
     const username = page.locator('//*[@id="userTable"]/tbody/tr/td[2]');
-    
-    // web first assertion
-    // await expect(ele).toHaveText("text");
-    await expect(username).toHaveText("Kiki dep trai")
+    await expect(username).toHaveText("Kiki dep trai");
+
+    const emailTable = page.locator('//*[@id="userTable"]/tbody/tr/td[3]');
+    await expect(emailTable).toHaveText('kiki@gmail.com');
 })
