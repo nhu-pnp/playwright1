@@ -14,18 +14,6 @@ test('productpage', async ({page}) => {
 
     const sanPham3 = page.locator('//button[@data-product-id="3"]');
     await sanPham3.click();
+    
 
 })
-
-// click vaof linkl
-test('vao link mua hang', async ({page}) => { 
-    const productPage = new ProductPage(page);
-    console.log(productPage)
-    await productPage.navigateTo(productPage.linkProductPage);
-
-    await productPage.clickProductPage();
-    await productPage.clickProductPage1();
-    await productPage.clickProductPage2();
-    await productPage.clickProductPage3();
-
- })
