@@ -35,6 +35,6 @@ test("Add san pham", async ({ page }) => {
   await todoPage.goToPage();
   for (var i = 1; i <= 100; i++) {
     //i chay tu 1 - 100
-    await todoPage.addItem(`Todo ${i}`); //nhap vao field todo co i la tu 1 - 100
+    await todoPage.addItems(`Todo ${i}`); //nhap vao field todo co i la tu 1 - 100
   }
 });

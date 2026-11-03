@@ -13,7 +13,7 @@ test.describe("Hook", async () => {
   });
 
   //Before each va After each se duoc dung nhieu hon
-  test.beforeEach(async ({page}) => {
+  test.beforeEach(async ({ page }) => {
     console.log("Before each");
     //Given user is on Register page
     const registerKhang = new RegisterPage(page);
@@ -24,9 +24,9 @@ test.describe("Hook", async () => {
     console.log("After each");
   });
 
-  test("test 1", async ({page}) => {
+  test("test 1", async ({ page }) => {
     const registerKhang = new RegisterPage(page);
-    
+
     //When user filll username is Khang
     await registerKhang.fillUsername("khang");
     //AND user fill email is "Khang@gmai.com"

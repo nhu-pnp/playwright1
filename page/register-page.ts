@@ -61,8 +61,6 @@ export class RegisterPage extends BasePage {//object
     //method
     async navigateToRegisterPage() {
         await this.page.goto(this.linkRegister);
-        //
-        await this.navigateTo(this.linkRegister);
     }
     
     async fillUsername(username:string){

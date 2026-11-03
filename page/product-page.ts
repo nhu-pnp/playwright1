@@ -36,8 +36,8 @@ export class ProductPage extends BasePage {
 
     //get price product 1 => $10
     const priceProduct1Element = this.page.locator(this.xpathPriceProduct1);
-    const contentprice = await priceProduct1Element.textContent(); // $10.00
-    const contentWithoutSymbol = contentprice.replace("$", ""); // $10.00
+    const contentPrice = await priceProduct1Element.textContent(); // $10.00
+    const contentWithoutSymbol = contentPrice.replace("$", ""); // $10.00
     const priceProduct1 = Number(contentWithoutSymbol); // 10: number
     console.log(priceProduct1);
 
